@@ -9,16 +9,12 @@
 </template>
 
 <script>
-import firstPage from '@/components/firstPage'
 import one from '@/components/one'
-import cookerPage from '@/components/cookerPage'
 
 export default {
   name: 'wafer-project',
   components: {
-    firstPage,
-    one,
-    cookerPage
+    one
   }
 }
 
@@ -26,12 +22,12 @@ export default {
 
 <style>
 #app {
-    /* font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB',
+  /* font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB',
         'Microsoft YaHei', Arial, sans-serif; */
-    font-family: '微软雅黑';
+  font-family: "微软雅黑";
 }
 /* CSS */
 #firstPage {
-    height: 100%;
+  height: 100%;
 }
 </style>
