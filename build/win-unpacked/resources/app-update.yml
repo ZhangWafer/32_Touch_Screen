@@ -1,0 +1,4 @@
+owner: ZhangWafer
+repo: wafer-project
+provider: github
+updaterCacheDirName: wafer-project-updater
