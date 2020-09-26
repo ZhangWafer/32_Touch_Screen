@@ -1,24 +1,44 @@
 <template>
   <div>
-    <el-container class="backgroundClass">
-      <el-header>
-        <el-row>
-          <el-col :span="8">
-            &nbsp
+    <el-container>
+      <el-main>
+        <el-row style="height:800px">
+          <el-col :span="20">
+            <el-carousel :interval="5000"
+              height="800px"
+              arrow="always">
+              <el-carousel-item v-for="item in [0,1]"
+                :key="item">
+                <el-image style="width: 100%; height:100%"
+                  :src="imgUrl[item]"
+                  fit="cover"></el-image>
+              </el-carousel-item>
+            </el-carousel>
           </el-col>
-          <el-col :span="8"
-            style="text-align:center">
-            <el-tag effect="dark"
-              style="display:inline-block;font-size:36px;width:200px;height:42px;text-align:center;line-height:36px">智慧饭堂</el-tag>
-          </el-col>
-          <el-col :span="8">
-            &nbsp
+          <el-col :span="4"
+            style="height:800px;">
+            <el-row style="height:50%;display: flex;">
+              <el-button type="primary"
+                style="display:inline-block;font-size:70px;width:100%;height:100%;align-self:center"
+                class="bigButton">
+                排餐
+              </el-button>
+            </el-row>
+            <el-row style="height:50%;display: flex;">
+              <el-button type="success"
+                style="display:inline-block;font-size:70px;width:100%;height:100%;align-self:center"
+                class="bigButton"
+                @click="goTwo()">
+                智慧
+                <br>
+                饭堂
+              </el-button>
+            </el-row>
           </el-col>
 
         </el-row>
 
-      </el-header>
-      <el-main></el-main>
+      </el-main>
     </el-container>
   </div>
 </template>
@@ -31,7 +51,7 @@ export default {
   data: function () {
     return {
       testValue: false,
-      url: '../img/278010.jpg',
+      imgUrl: [require('d:/img/278010.jpg'), require('d:/img/278074.jpg')],
       fits: ['fill', 'contain', 'cover', 'none', 'scale-down']
     }
   },
@@ -53,6 +73,12 @@ export default {
   methods: {
     testMethod() {
       console.log('66666666666')
+    },
+    goTwo(event) {
+      this.$router.push({
+        path: '/two'
+      })
+      console.log(this)
     }
   }
 }
@@ -63,5 +89,62 @@ export default {
   background: url("../img/278010.jpg") no-repeat;
   height: 900px;
   background-size: 100% 100%;
+
+  /* filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  width: 100%;
+  height: 900px;
+  position: absolute;
+  background: url("../img/278010.jpg") no-repeat;
+  background-attachment: fixed; */
+}
+
+.bigButton {
+  height: 38%;
+  width: 80%;
+}
+
+/* 毛玻璃 */
+.pub-position {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.glass-wrap {
+  width: 325px;
+  height: 185px;
+  margin: 200px auto;
+  background: url("../img/278010.jpg") no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.word-wrap,
+.content {
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  overflow: hidden;
+  color: #fff;
+}
+/* 这里使用同级元素解决文字容器做滤镜被覆盖的问题 */
+.word-wrap::before {
+  content: "";
+  width: 325px;
+  height: 185px;
+  position: absolute;
+  left: -10px; /* 这个值影响背景图片的位置 */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  filter: blur(10px);
+  background: url("../img/278010.jpg") no-repeat;
+  background-size: contain;
 }
 </style>

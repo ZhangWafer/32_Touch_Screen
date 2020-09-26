@@ -1,7 +1,48 @@
 <template>
   <div>
-    <h1> 122222222</h1>
-    <el-button @click="goBack()"></el-button>
+    <el-container>
+      <el-header style="background:#409eff;">
+        <el-row>
+          <el-col :span="8">
+            <h1></h1>
+          </el-col>
+          <el-col :span="8"
+            style="text-align:center">
+            <el-tag effect="dark"
+              style="font-size:40px;margin-top:10px;display:inline-block;width:200px;height:42px;text-align:center;line-height:36px">
+              智慧饭堂
+            </el-tag>
+          </el-col>
+          <el-col :span="8">
+            <h1></h1>
+          </el-col>
+        </el-row>
+      </el-header>
+      <el-main>
+        <el-row style="margin-top:80px">
+          <el-col :span=12
+            style="text-align:center;height:600px">
+            <el-button type="success"
+              round
+              style="display:inline-block;font-size:90px;height:500px"
+              class="bigButton"
+              @click="goRecord()">
+              消费记录
+            </el-button>
+          </el-col>
+          <el-col :span=12
+            style="text-align:center;height:600px;">
+            <el-button style="display:inline-block;font-size:90px;height:500px"
+              round
+              type="primary"
+              class="bigButton"
+              @click="goJudge()">
+              菜品点评
+            </el-button>
+          </el-col>
+        </el-row>
+      </el-main>
+    </el-container>
   </div>
 </template>
 <script>
@@ -34,9 +75,15 @@ export default {
     testMethod() {
       console.log('66666666666')
     },
-    goBack(event) {
+    goRecord(event) {
       this.$router.push({
-        path: '/'
+        path: '/record'
+      })
+      console.log(this)
+    },
+    goJudge(event) {
+      this.$router.push({
+        path: '/judge'
       })
       console.log(this)
     }

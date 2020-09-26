@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import Vue from 'vue'
 import one from '../components/one.vue'
 import two from '../components/two.vue'
+import record from '../components/Record.vue'
+import judge from '../components/Judge.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +16,12 @@ const routes = [
   }, {
     path: '/two',
     component: two
+  }, {
+    path: '/record',
+    component: record
+  }, {
+    path: '/judge',
+    component: judge
   }
 ]
 
