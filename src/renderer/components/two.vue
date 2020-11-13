@@ -42,12 +42,19 @@
           </el-col>
         </el-row>
       </el-main>
+      <el-footer style="background:rgba(255, 23, 23, 0.82);">
+        <el-button @click="goOne()"
+          class="backBtn"
+          type="danger">返回</el-button>
+      </el-footer>
     </el-container>
   </div>
 </template>
 <script>
 import axios from 'axios'
 import Vue from 'vue'
+import { mapState } from 'vuex'
+
 Vue.prototype.$ajax = axios
 
 export default {
@@ -86,10 +93,29 @@ export default {
         path: '/judge'
       })
       console.log(this)
+    },
+    goOne(event) {
+      this.$router.push({
+        path: '/'
+      })
+      console.log(this)
     }
+  },
+  computed: {
+    ...mapState(['count'])
   }
+
 }
 </script>
 
 <style>
+.backBtn {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 23, 23, 0.82);
+  color: white;
+  border: none;
+  font-size: 36px;
+  font-weight: bold;
+}
 </style>
